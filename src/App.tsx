@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import EventForm from "./components/EventForm";
+import EventList from "./components/EventList";
 
 const App: React.FC = () => {
     return (
@@ -24,6 +25,7 @@ const App: React.FC = () => {
                 </nav>
                 <Routes>
                     <Route path="/add" element={<EventForm />} />
+                    <Route path="/list" element={<EventList />} />
                 </Routes>
             </div>
         </Router>
