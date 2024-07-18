@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import { addEvent } from "../redux/slices/eventSlice";
 
 interface EventFormState {
     name: string;
@@ -24,6 +26,9 @@ const EventForm: React.FC = () => {
         subEvents: 0,
     });
 
+    // Redux dispatcher
+    const dispatch = useDispatch();
+
     const handleChange = (
         e: React.ChangeEvent<
             HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -43,6 +48,7 @@ const EventForm: React.FC = () => {
             ...formData,
         };
         // Dispatch redux
+        dispatch(addEvent(newEvent));
         setFormData({
             name: "",
             type: "",
