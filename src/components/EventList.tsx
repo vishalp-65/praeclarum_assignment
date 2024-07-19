@@ -111,7 +111,7 @@ const EventList: React.FC = () => {
                 </div>
             ) : (
                 // Handling empty events
-                <div className="flex flex-col items-center justify-center w-full text-center h-40">
+                <div className="flex flex-col items-center justify-center w-full text-center h-80 text-xl text-gray-600">
                     <p>No item found!</p>
                     <p>Please add item using event form</p>
                 </div>

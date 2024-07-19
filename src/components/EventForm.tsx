@@ -118,7 +118,7 @@ const EventForm: React.FC = () => {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Event Name"
-                        className="w-full mt-2 p-2 border border-gray-400 dark:border-gray-700 rounded bg-white dark:bg-gray-900"
+                        className="w-full mt-2 p-2 border border-gray-400 dark:border-gray-700 rounded bg-gray-100 dark:bg-gray-900"
                         required
                     />
                     {errors.name && (
@@ -138,7 +138,7 @@ const EventForm: React.FC = () => {
                         id="type"
                         value={formData.type}
                         onChange={handleChange}
-                        className="w-full mt-2 p-2 border border-gray-400 rounded dark:border-gray-700 bg-white dark:bg-gray-900"
+                        className="w-full mt-2 p-2 border border-gray-400 rounded dark:border-gray-700 bg-gray-100 dark:bg-gray-900"
                         required
                     >
                         <option value="">Select Type</option>
@@ -166,7 +166,7 @@ const EventForm: React.FC = () => {
                         id="startDate"
                         value={formData.startDate}
                         onChange={handleChange}
-                        className="w-full mt-2 p-2 border border-gray-400 dark:border-gray-700 rounded bg-white dark:bg-gray-900"
+                        className="w-full mt-2 p-2 border border-gray-400 dark:border-gray-700 rounded bg-gray-100 dark:bg-gray-900"
                         required
                     />
                     {errors.startDate && (
@@ -189,7 +189,7 @@ const EventForm: React.FC = () => {
                         id="endDate"
                         value={formData.endDate}
                         onChange={handleChange}
-                        className="w-full mt-2 p-2 border border-gray-400 dark:border-gray-700 rounded bg-white dark:bg-gray-900"
+                        className="w-full mt-2 p-2 border border-gray-400 dark:border-gray-700 rounded bg-gray-100 dark:bg-gray-900"
                         required
                     />
                     {errors.endDate && (
@@ -210,7 +210,7 @@ const EventForm: React.FC = () => {
                         value={formData.description}
                         onChange={handleChange}
                         placeholder="Event Description"
-                        className="w-full mt-2 p-2 border border-gray-400 dark:border-gray-700 rounded bg-white dark:bg-gray-900"
+                        className="w-full mt-2 p-2 border border-gray-400 dark:border-gray-700 rounded bg-gray-100 dark:bg-gray-900"
                     />
                 </div>
 
@@ -228,7 +228,7 @@ const EventForm: React.FC = () => {
                         value={formData.handledBy}
                         onChange={handleChange}
                         placeholder="Event Handled By"
-                        className="w-full mt-2 p-2 border border-gray-400 dark:border-gray-700 rounded bg-white dark:bg-gray-900"
+                        className="w-full mt-2 p-2 border border-gray-400 dark:border-gray-700 rounded bg-gray-100 dark:bg-gray-900"
                     />
                 </div>
 
@@ -246,7 +246,7 @@ const EventForm: React.FC = () => {
                         value={formData.organisation}
                         onChange={handleChange}
                         placeholder="Event Organisation"
-                        className="w-full mt-2 p-2 border border-gray-400 dark:border-gray-700 rounded bg-white dark:bg-gray-900"
+                        className="w-full mt-2 p-2 border border-gray-400 dark:border-gray-700 rounded bg-gray-100 dark:bg-gray-900"
                     />
                 </div>
 
@@ -266,7 +266,7 @@ const EventForm: React.FC = () => {
                         }
                         onChange={handleChange}
                         placeholder="Total Number of Sub-events"
-                        className="w-full mt-2 p-2 border border-gray-400 dark:border-gray-700 rounded bg-white dark:bg-gray-900"
+                        className="w-full mt-2 p-2 border border-gray-400 dark:border-gray-700 rounded bg-gray-100 dark:bg-gray-900"
                         required
                     />
                     {errors.subEvents && (

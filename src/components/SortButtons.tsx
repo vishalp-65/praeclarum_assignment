@@ -1,16 +1,15 @@
 // components/SortComponent.tsx
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { sortEvents } from "../redux/slices/eventSlice";
+import { RootState } from "../redux/store";
 
 const SortComponent: React.FC = () => {
-    const [sortBy, setSortBy] = useState("");
     const dispatch = useDispatch();
+    const sortBy = useSelector((state: RootState) => state.events.sortBy);
 
-    // Handling sort change event
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const value = e.target.value;
-        setSortBy(value);
         dispatch(sortEvents(value));
     };
 

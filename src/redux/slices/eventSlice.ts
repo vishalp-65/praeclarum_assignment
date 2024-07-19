@@ -5,14 +5,17 @@ import { Event } from "../../types/eventTypes";
 interface EventState {
     events: Event[];
     filteredEvents: Event[];
+    filter: string;
+    sortBy: string;
 }
 
 const initialState: EventState = {
     events: [],
     filteredEvents: [],
+    filter: "",
+    sortBy: "",
 };
 
-// Checking if provided field is a event fields or not
 const isEventField = (field: string): field is keyof Event => {
     return ["name", "type", "startDate", "endDate"].includes(field);
 };
@@ -21,22 +24,19 @@ const eventsSlice = createSlice({
     name: "events",
     initialState,
     reducers: {
-        // Add a new event
         addEvent: (state, action: PayloadAction<Event>) => {
             state.events.push(action.payload);
             state.filteredEvents = state.events;
         },
-
-        // Delete a event
         deleteEvent: (state, action: PayloadAction<string>) => {
             state.events = state.events.filter(
                 (event) => event.id !== action.payload
             );
             state.filteredEvents = state.events;
         },
-        // Sorting event based on field
         sortEvents(state, action: PayloadAction<string>) {
             const field = action.payload;
+            state.sortBy = field;
             if (isEventField(field)) {
                 state.filteredEvents = [...state.filteredEvents].sort(
                     (a, b) => {
@@ -47,10 +47,9 @@ const eventsSlice = createSlice({
                 );
             }
         },
-
-        // Filtering events based on name
         filterEvents(state, action: PayloadAction<string>) {
             const filter = action.payload.toLowerCase();
+            state.filter = filter;
             state.filteredEvents = state.events.filter((event) =>
                 event.name.toLowerCase().includes(filter)
             );

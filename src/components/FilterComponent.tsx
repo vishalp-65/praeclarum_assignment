@@ -1,19 +1,16 @@
 // components/FilterComponent.tsx
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { filterEvents } from "../redux/slices/eventSlice";
+import { RootState } from "../redux/store";
 
 const FilterComponent: React.FC = () => {
-    const [filter, setFilter] = useState<string>("");
     const dispatch = useDispatch();
+    const filter = useSelector((state: RootState) => state.events.filter);
 
-    // Handle filter change value
     const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFilter(e.target.value);
         dispatch(filterEvents(e.target.value));
     };
-
-    useEffect(() => {}, [filter]);
 
     return (
         <div className="flex flex-col gap-2 justify-start">
