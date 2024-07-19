@@ -1,13 +1,14 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
+import { deleteEvent } from "../redux/slices/eventSlice";
 
 const EventList: React.FC = () => {
     const events = useSelector((state: RootState) => state.events.events);
     const dispatch = useDispatch();
 
     const handleDelete = (id: string) => {
-        // dispatch(deleteEvent(id));
+        dispatch(deleteEvent(id));
     };
 
     return (
