@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Route,
+    Routes,
+    Navigate,
+} from "react-router-dom";
 import EventForm from "./components/EventForm";
 import EventList from "./components/EventList";
 import Navbar from "./components/Navbar";
@@ -13,6 +18,7 @@ const App: React.FC = () => {
             {/* Routes */}
             <div className="flex flex-col items-center justify-center gap-4 pt-20">
                 <Routes>
+                    <Route path="/" element={<Navigate to="/add" />} />
                     <Route path="/add" element={<EventForm />} />
                     <Route path="/list" element={<EventList />} />
                 </Routes>
