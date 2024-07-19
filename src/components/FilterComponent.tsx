@@ -7,6 +7,7 @@ const FilterComponent: React.FC = () => {
     const [filter, setFilter] = useState<string>("");
     const dispatch = useDispatch();
 
+    // Handle filter change value
     const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFilter(e.target.value);
         dispatch(filterEvents(e.target.value));

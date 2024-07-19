@@ -15,6 +15,7 @@ interface EventFormState {
 }
 
 const EventForm: React.FC = () => {
+    // Form data state
     const [formData, setFormData] = useState<EventFormState>({
         name: "",
         type: "",
@@ -26,9 +27,11 @@ const EventForm: React.FC = () => {
         subEvents: 0,
     });
 
+    // State for handle error for each input
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
     const dispatch = useDispatch();
 
+    // Validation function
     const validate = () => {
         const errors: { [key: string]: string } = {};
         const today = new Date().toISOString().split("T")[0];
@@ -53,6 +56,7 @@ const EventForm: React.FC = () => {
         return Object.keys(errors).length === 0;
     };
 
+    // Handle change input
     const handleChange = (
         e: React.ChangeEvent<
             HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -65,16 +69,22 @@ const EventForm: React.FC = () => {
         });
     };
 
+    // Handle after submit
     const handleSubmit = (e: React.FormEvent) => {
+        // Prevent reloading page
         e.preventDefault();
         if (!validate()) return;
 
+        // Create new unique ID for each event
         const newEvent = {
             id: uuidv4(),
             ...formData,
         };
 
+        // dispatch event for add event
         dispatch(addEvent(newEvent));
+
+        // Clearing state after save the event
         setFormData({
             name: "",
             type: "",

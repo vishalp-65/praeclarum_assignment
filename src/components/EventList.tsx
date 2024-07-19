@@ -7,11 +7,13 @@ import FilterComponent from "./FilterComponent";
 import SortComponent from "./SortButtons";
 
 const EventList: React.FC = () => {
+    // Getting events
     const events = useSelector(
         (state: RootState) => state.events.filteredEvents
     );
     const dispatch = useDispatch();
 
+    // Handle delete event and dispatch event for delete
     const handleDelete = (id: string) => {
         dispatch(deleteEvent(id));
     };
@@ -31,7 +33,9 @@ const EventList: React.FC = () => {
                         className="bg-white dark:bg-gray-900 border border-gray-700
                  dark:border-gray-500 text-center rounded-2xl shadow-lg"
                     >
+                        {/* Table start */}
                         <table className="w-full px-3">
+                            {/* Table head */}
                             <thead>
                                 <tr className="border-b border-gray-600">
                                     <th className="p-4">Name</th>
@@ -45,6 +49,8 @@ const EventList: React.FC = () => {
                                     <th className="p-4">Actions</th>
                                 </tr>
                             </thead>
+
+                            {/* Table body */}
                             <tbody className="text-center">
                                 {events.map((event, ind) => (
                                     <tr
@@ -104,6 +110,7 @@ const EventList: React.FC = () => {
                     </div>
                 </div>
             ) : (
+                // Handling empty events
                 <div className="flex flex-col items-center justify-center w-full text-center h-40">
                     <p>No item found!</p>
                     <p>Please add item using event form</p>

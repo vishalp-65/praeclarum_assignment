@@ -7,7 +7,10 @@ import Navbar from "./components/Navbar";
 const App: React.FC = () => {
     return (
         <Router>
+            {/* Navbar */}
             <Navbar />
+
+            {/* Routes */}
             <div className="flex flex-col items-center justify-center gap-4 pt-20">
                 <Routes>
                     <Route path="/add" element={<EventForm />} />

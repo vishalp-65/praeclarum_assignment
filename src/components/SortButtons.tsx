@@ -7,6 +7,7 @@ const SortComponent: React.FC = () => {
     const [sortBy, setSortBy] = useState("");
     const dispatch = useDispatch();
 
+    // Handling sort change event
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const value = e.target.value;
         setSortBy(value);

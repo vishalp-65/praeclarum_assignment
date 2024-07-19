@@ -12,6 +12,7 @@ const initialState: EventState = {
     filteredEvents: [],
 };
 
+// Checking if provided field is a event fields or not
 const isEventField = (field: string): field is keyof Event => {
     return ["name", "type", "startDate", "endDate"].includes(field);
 };
@@ -20,16 +21,20 @@ const eventsSlice = createSlice({
     name: "events",
     initialState,
     reducers: {
+        // Add a new event
         addEvent: (state, action: PayloadAction<Event>) => {
             state.events.push(action.payload);
             state.filteredEvents = state.events;
         },
+
+        // Delete a event
         deleteEvent: (state, action: PayloadAction<string>) => {
             state.events = state.events.filter(
                 (event) => event.id !== action.payload
             );
             state.filteredEvents = state.events;
         },
+        // Sorting event based on field
         sortEvents(state, action: PayloadAction<string>) {
             const field = action.payload;
             if (isEventField(field)) {
@@ -42,6 +47,8 @@ const eventsSlice = createSlice({
                 );
             }
         },
+
+        // Filtering events based on name
         filterEvents(state, action: PayloadAction<string>) {
             const filter = action.payload.toLowerCase();
             state.filteredEvents = state.events.filter((event) =>

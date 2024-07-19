@@ -5,6 +5,8 @@ type Props = {};
 
 const Navbar = (props: Props) => {
     const location = useLocation();
+
+    // Getting current active navbar
     const currActive = location.pathname;
 
     return (

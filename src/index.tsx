@@ -12,10 +12,15 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
+        {/* Redux provider  */}
         <Provider store={store}>
+            {/* Theme context  */}
             <ThemeContextProvider>
                 <div className="bg-gray-100 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90">
+                    {/* App component  */}
                     <App />
+
+                    {/* Theme button */}
                     <ThemeSwitch />
                 </div>
             </ThemeContextProvider>
