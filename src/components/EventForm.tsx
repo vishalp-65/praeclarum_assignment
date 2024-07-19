@@ -88,7 +88,7 @@ const EventForm: React.FC = () => {
     };
 
     return (
-        <div className="w-full flex bg-transparent flex-col justify-center items-center mb-10">
+        <div className="w-full flex bg-transparent flex-col justify-center items-center mb-10 px-2 lg:px-0">
             <form
                 onSubmit={handleSubmit}
                 className="px-7 py-6 h-full bg-gray-50 dark:bg-gray-950 border border-gray-400 dark:border-gray-600 space-y-4 flex 
@@ -251,7 +251,9 @@ const EventForm: React.FC = () => {
                         type="number"
                         name="subEvents"
                         id="subEvents"
-                        value={formData.subEvents}
+                        value={
+                            formData.subEvents == 0 ? "" : formData.subEvents
+                        }
                         onChange={handleChange}
                         placeholder="Total Number of Sub-events"
                         className="w-full mt-2 p-2 border border-gray-400 dark:border-gray-700 rounded bg-white dark:bg-gray-900"
