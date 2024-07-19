@@ -4,7 +4,7 @@ This is a React application for managing events. It allows users to add, edit, d
 
 ## Deployed Link
 
-The application is deployed and can be accessed [here](https://praeclarumassignment.netlify.app/add).
+The application is deployed and can be accessed [here](https://praeclarumassignment.netlify.app).
 
 ## Features
 
