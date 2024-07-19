@@ -14,8 +14,10 @@ root.render(
     <React.StrictMode>
         <Provider store={store}>
             <ThemeContextProvider>
-                <App />
-                <ThemeSwitch />
+                <div className="bg-gray-100 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90">
+                    <App />
+                    <ThemeSwitch />
+                </div>
             </ThemeContextProvider>
         </Provider>
     </React.StrictMode>
